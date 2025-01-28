@@ -20,7 +20,7 @@ a {
   color: #333;
 }
 button,
-input[type="submit"] {
+input {
   border: none;
 }
 
@@ -66,7 +66,7 @@ body {
   border: 1px solid rgba(100, 116, 139, 0.527);
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327);
+  box-shadow: 0 3px 10 px rgba(100, 116, 139, 0.327);
   transition: all 0.3s ease;
 }
 
