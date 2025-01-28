@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./assets/css/signin.css" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <main>
+      <div class="view"></div>
+      <div class="signinForm">
+        <h2 class="title">Nice to see you again</h2>
+
+        <form action="#" method="post">
+          <div class="input">
+            <label for="email-phone">Login</label>
+            <input
+              type="text"
+              name="email-phone"
+              id="email-phone"
+              placeholder="Email or phone number"
+              required
+            />
+          </div>
+          <div class="input">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+              required
+            />
+            <i class="fa-solid fa-eye-slash"></i>
+          </div>
+          <div class="actions">
+            <div class="remember">
+              <input
+                type="checkbox"
+                name="remember"
+                id="remember"
+                class="switch"
+              />
+              <label for="remember">Remember Me</label>
+            </div>
+
+            <a href="#">Forgot password?</a>
+          </div>
+          <input type="submit" value="Sign In" class="primaryBtn" />
+
+          <div class="line"></div>
+
+          <button class="googleBtn">
+            <img src="./assets/icons/google.png" alt="Google" />
+            <a href="#">OR Sign in with Google</a>
+          </button>
+
+          <p class="signupBtn">
+            Don't have an account? <a href="#">Sign up now</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
