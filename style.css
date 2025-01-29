@@ -12,6 +12,13 @@
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
+
+section .container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
 ul {
   list-style: none;
 }
