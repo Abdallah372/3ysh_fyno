@@ -2,12 +2,18 @@
 
 body {
   background-color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* header */
 
 header {
+  align-self: center;
+  position: fixed;
   width: 90%;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 20px;
   background-color: var(--color-light);
@@ -35,25 +41,39 @@ header nav ul li a:hover {
 }
 header .icons {
   display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 
-header .icons img {
+header img {
   cursor: pointer;
   width: 30px;
   height: 30px;
   object-fit: cover;
+  padding: 2px;
 }
-
+header .icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+header .icons a:hover {
+  background-color: rgba(33, 33, 33, 0.15);
+}
 header .icons #cart {
   position: relative;
 }
-
 header .icons #cart::after {
   content: "10";
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 0px;
+  right: 0px;
   background-color: #ee4d5b;
   width: 20px;
   height: 20px;
@@ -61,8 +81,96 @@ header .icons #cart::after {
   font-size: 12px;
   display: grid;
   place-content: center;
+  color: var(--color-light);
 }
 
 header #menuIcon {
   display: none;
+}
+
+/* search box */
+.searchBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.searchBox input {
+  background-color: transparent;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.searchBox i {
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.searchBox i:hover {
+  color: #007bff;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  header {
+    position: relative;
+  }
+
+  header #menuIcon {
+    display: block;
+    transition: 0.8s;
+  }
+  header #menuIcon.open {
+    transform: rotate(90deg);
+  }
+  nav {
+    position: absolute;
+    right: -100%;
+    top: calc(100% + 20px);
+    background-color: var(--color-dark);
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.8s;
+  }
+  nav.open {
+    opacity: 1;
+    right: 0;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  header nav ul li a {
+    color: var(--color-light);
+  }
+  header nav ul li a:hover {
+    color: #d4d4d4;
+  }
+}
+
+@media (max-width: 400px) {
+  header .logo {
+    font-size: 20px;
+  }
+  header .icons {
+    gap: 15px;
+  }
+  header img {
+    width: 25px;
+    height: 25px;
+  }
 }
