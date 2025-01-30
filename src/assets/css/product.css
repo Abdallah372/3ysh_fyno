@@ -8,7 +8,7 @@
 body {
   height: 100vh;
   font-family: "Ubuntu", sans-serif;
-  background-color: black;
+  background-color: white;
 }
 
 .products {
@@ -32,7 +32,7 @@ body {
   width: 400px;
   height: 400px;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 4px;
   background-color: red;
   display: flex;
   justify-content: center;
@@ -60,8 +60,8 @@ body {
   width: 10px;
   height: 10px;
   background-color: white;
-  border-radius: 50%;
-  transition: .5s ease;
+  border-radius: 1.8px;
+  transition: 0.5s ease;
 }
 
 .change1 {
@@ -69,7 +69,7 @@ body {
 }
 
 .change2 {
-  opacity: 0.50;
+  opacity: 0.5;
 }
 
 .change3 {
@@ -77,7 +77,7 @@ body {
 }
 
 .change4 {
-opacity: 1;
+  opacity: 1;
 }
 
 .title {
@@ -85,7 +85,7 @@ opacity: 1;
   justify-content: center;
   flex-direction: column;
   width: 50%;
-  color: white;
+  color: black;
   gap: 20px;
 }
 
@@ -125,8 +125,21 @@ opacity: 1;
 }
 
 .size {
-  border: 1px solid;
-  padding: 5px 10px;
+  border: 1px solid red;
+  background-color: red;
+  box-shadow: inset 0 0 0 0;
+  padding: 10px;
+  border-radius: 4px;
+  transition: 0.5s ease;
+}
+
+.size:hover {
+  border: 1px solid tomato;
+  box-shadow: inset 0 0 5px 2px tomato;
+}
+
+.size:nth-child(1) {
+  padding: 10px 15px;
 }
 
 .colors {
@@ -137,7 +150,7 @@ opacity: 1;
 .color {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -150,7 +163,7 @@ opacity: 1;
 }
 
 .color3 {
-  background-color: white;
+  background-color: blue;
 }
 .select-a {
   display: flex;
@@ -189,8 +202,6 @@ a {
   animation: addtocard1 5s ease infinite;
 }
 
-
-
 @keyframes addtocard1 {
   0% {
     color: red;
@@ -209,26 +220,29 @@ a {
   0% {
     background-color: red;
     border: 1px solid red;
+    color: green;
   }
 
   50% {
     background-color: green;
     border: 1px solid green;
+    color: red;
   }
 
   100% {
     background-color: red;
     border: 1px solid red;
+    color: green;
   }
 }
 
 @media (max-width: 800px) {
-  
   .products {
+    padding: 15px;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
@@ -240,12 +254,30 @@ a {
     justify-content: center;
   }
 
+  .img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+  }
+
   .title {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    color: white;
+    color: black;
     gap: 20px;
   }
 }
