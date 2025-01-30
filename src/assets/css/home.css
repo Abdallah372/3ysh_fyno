@@ -225,16 +225,9 @@ header #menuIcon {
   padding: 20px;
 }
 
-.productFilter {
-  display: none;
-  position: absolute;
-  width: 250px;
-  background: var(--color-light);
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+/* product filter */
 
+/* product filter */
 .productsContainer {
   flex: 1;
   display: flex;
@@ -245,13 +238,13 @@ header #menuIcon {
 .productsBox {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
 
-.product {
-  width: 350px;
+.productsBox .product {
+  max-width: 350px;
   position: relative;
   padding: 10px;
   background: white;
@@ -296,7 +289,6 @@ header #menuIcon {
 
 .price {
   font-size: 18px;
-  font-weight: bold;
 }
 
 .buttons {
@@ -315,6 +307,7 @@ header #menuIcon {
   border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100px;
 }
 
 .addButton {
