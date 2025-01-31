@@ -121,3 +121,84 @@ searchInput.addEventListener(
     suggestionsBox.style.opacity = "1";
   }, 300)
 );
+
+// Product Filter
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filterBtn");
+  const products = document.querySelectorAll(".product");
+
+  const filterProducts = (category) => {
+    products.forEach((product) => {
+      const productCategory = product.getAttribute("data-category");
+
+      if (category === "all" || productCategory === category) {
+        gsap.to(product, {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out",
+          onStart: () => {
+            product.style.display = "block";
+          },
+        });
+      } else {
+        gsap.to(product, {
+          opacity: 0,
+          scale: 0.8,
+          y: 20,
+          duration: 0.5,
+          ease: "power3.out",
+          onComplete: () => {
+            product.style.display = "none";
+          },
+        });
+      }
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach((btn) => btn.parentNode.classList.remove("active"));
+
+      button.parentNode.classList.add("active");
+
+      const category = button.getAttribute("data-category");
+      filterProducts(category);
+    });
+  });
+
+  gsap.from(".product", {
+    opacity: 0,
+    scale: 0.8,
+    y: 20,
+    duration: 0.5,
+    ease: "power3.out",
+    stagger: 0.1,
+    onStart: () => {
+      products.forEach((product) => {
+        product.style.display = "block";
+      });
+    },
+  });
+});
+
+// Product Swiper
+
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return `<span class="${className}">${index + 1}</span>`;
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
+});

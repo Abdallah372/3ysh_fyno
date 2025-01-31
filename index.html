@@ -12,6 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>Home</title>
   </head>
   <body>
@@ -63,97 +67,356 @@
             <h3 class="title">Category</h3>
             <ul class="mainMenu">
               <li class="menuItem">
-                <a href="#">All Product <span class="badge">32</span></a>
+                <button class="allProductsBtn">
+                  <i class="fa-solid fa-briefcase"></i>
+                  All Product <span class="badge">32</span>
+                  <i class="fa-solid fa-angle-down"></i>
+                </button>
                 <ul class="submenu">
-                  <li><a href="#">For Music</a></li>
-                  <li><a href="#">For Phone</a></li>
-                  <li><a href="#">For Storage</a></li>
-                  <li><a href="#">For Home</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#">New Arrival</a>
-
-                <ul class="submenu">
-                  <li><a href="#">For Music</a></li>
-                  <li><a href="#">For Phone</a></li>
-                  <li><a href="#">For Storage</a></li>
-                  <li><a href="#">For Home</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Best Seller</a>
-                <ul class="submenu">
-                  <li><a href="#">For Music</a></li>
-                  <li><a href="#">For Phone</a></li>
-                  <li><a href="#">For Storage</a></li>
-                  <li><a href="#">For Home</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">On Discount</a>
-
-                <ul class="submenu">
-                  <li><a href="#">For Music</a></li>
-                  <li><a href="#">For Phone</a></li>
-                  <li><a href="#">For Storage</a></li>
-                  <li><a href="#">For Home</a></li>
+                  <li>
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <button class="filterBtn" data-category="home">
+                      For Home
+                    </button>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-compact-disc"></i>
+                    <button class="filterBtn" data-category="headphone">
+                      For Music
+                    </button>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-mobile"></i>
+                    <button class="filterBtn" data-category="phone">
+                      For Phone
+                    </button>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-arrow-down-up-lock"></i>
+                    <button class="filterBtn" data-category="storage">
+                      For Storage
+                    </button>
+                  </li>
                 </ul>
               </li>
             </ul>
           </aside>
 
-          <div class="productsContainer">
-            <div class="productsBox">
-              <div class="product" data-cat="" data-type="">
-                <span class="type">Music</span>
-                <img src="./src/assets/images/phone.jpg" alt="" />
-                <h3>Phone</h3>
-                <div class="row">
-                  <div class="rating"><i class="fa-solid fa-star"></i></div>
-                  <div class="price">$99.34</div>
+          <div class="swiper productsContainer">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide productsBox">
+                <div class="product" data-category="headphone">
+                  <span class="type">HeadPhone</span>
+                  <img
+                    src="./src/assets/images/products/headphone-black.jpg"
+                    alt=""
+                  />
+                  <h3>Black HeadPhone</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
                 </div>
-                <div class="buttons">
-                  <button class="addButton">Add to Cart</button>
-                  <button class="buyButton">Buy Now</button>
+
+                <div class="product" data-category="home">
+                  <span class="type">Home</span>
+                  <img src="./src/assets/images/products/laptop.jpg" alt="" />
+                  <h3>White Laptop</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="storage">
+                  <span class="type">Storage</span>
+                  <img src="./src/assets/images/products/ssd.jpg" alt="" />
+                  <h3>SSD</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="headphone">
+                  <span class="type">Headphone</span>
+                  <img
+                    src="./src/assets/images/products/headphone-white.jpg"
+                    alt=""
+                  />
+                  <h3>White Headphone</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="headphone">
+                  <span class="type">Earbuds</span>
+                  <img
+                    src="./src/assets/images/products/earbuds-black.jpg"
+                    alt=""
+                  />
+                  <h3>Black Earbuds</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="home">
+                  <span class="type">Camera</span>
+                  <img src="./src/assets/images/products/camera.jpg" alt="" />
+                  <h3>Bad Camera</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="phone">
+                  <span class="type">Apple</span>
+                  <img src="./src/assets/images/products/iphone.jpg" alt="" />
+                  <h3>IPhone 14 pro</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="storage">
+                  <span class="type">Intel</span>
+                  <img src="./src/assets/images/products/cpu.jpg" alt="" />
+                  <h3>Core i7 Gen-12</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="phone">
+                  <span class="type">OPPO</span>
+                  <img src="./src/assets/images/products/oppo.jpg" alt="" />
+                  <h3>OPPO Reno11 F</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="home">
+                  <span class="type">Home</span>
+                  <img src="./src/assets/images/products/laptop2.jpg" alt="" />
+                  <h3>Gaming Laptop</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
                 </div>
               </div>
+              <!--  -->
+              <div class="swiper-slide productsBox">
+                <div class="product" data-category="headphone">
+                  <span class="type">HeadPhone</span>
+                  <img
+                    src="./src/assets/images/products/headphone-black.jpg"
+                    alt=""
+                  />
+                  <h3>Black HeadPhone</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
 
-              <div class="product">
-                <span class="type">Music</span>
-                <img src="./src/assets/images/phone.jpg" alt="" />
-                <h3>Phone</h3>
-                <div class="row">
-                  <div class="rating"><i class="fa-solid fa-star"></i></div>
-                  <div class="price">$99.34</div>
+                <div class="product" data-category="home">
+                  <span class="type">Home</span>
+                  <img src="./src/assets/images/products/laptop.jpg" alt="" />
+                  <h3>White Laptop</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
                 </div>
-                <div class="buttons">
-                  <button class="addButton">Add to Cart</button>
-                  <button class="buyButton">Buy Now</button>
-                </div>
-              </div>
 
-              <div class="product">
-                <span class="type">Music</span>
-                <img src="./src/assets/images/phone.jpg" alt="" />
-                <h3>Phone</h3>
-                <div class="row">
-                  <div class="rating"><i class="fa-solid fa-star"></i></div>
-                  <div class="price">$99.34</div>
+                <div class="product" data-category="storage">
+                  <span class="type">Storage</span>
+                  <img src="./src/assets/images/products/ssd.jpg" alt="" />
+                  <h3>SSD</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
                 </div>
-                <div class="buttons">
-                  <button class="addButton">Add to Cart</button>
-                  <button class="buyButton">Buy Now</button>
+
+                <div class="product" data-category="headphone">
+                  <span class="type">Headphone</span>
+                  <img
+                    src="./src/assets/images/products/headphone-white.jpg"
+                    alt=""
+                  />
+                  <h3>White Headphone</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="headphone">
+                  <span class="type">Earbuds</span>
+                  <img
+                    src="./src/assets/images/products/earbuds-black.jpg"
+                    alt=""
+                  />
+                  <h3>Black Earbuds</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="home">
+                  <span class="type">Camera</span>
+                  <img src="./src/assets/images/products/camera.jpg" alt="" />
+                  <h3>Bad Camera</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="phone">
+                  <span class="type">Apple</span>
+                  <img src="./src/assets/images/products/iphone.jpg" alt="" />
+                  <h3>IPhone 14 pro</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="storage">
+                  <span class="type">Intel</span>
+                  <img src="./src/assets/images/products/cpu.jpg" alt="" />
+                  <h3>Core i7 Gen-12</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="phone">
+                  <span class="type">OPPO</span>
+                  <img src="./src/assets/images/products/oppo.jpg" alt="" />
+                  <h3>OPPO Reno11 F</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
+                </div>
+
+                <div class="product" data-category="home">
+                  <span class="type">Home</span>
+                  <img src="./src/assets/images/products/laptop2.jpg" alt="" />
+                  <h3>Gaming Laptop</h3>
+                  <div class="row">
+                    <div class="rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="price">$99.34</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="addButton">Add to Cart</button>
+                    <button class="buyButton">Buy Now</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="controls"></div>
+            <div class="swiper-controls">
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="script.js"></script>
     <script src="./src/assets/js/home.js"></script>
