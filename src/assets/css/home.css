@@ -271,12 +271,14 @@ header #menuIcon {
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .productFilter .mainMenu .menuItem .allProductsBtn .badge {
   background-color: #ee4d5b;
   color: var(--color-light);
   padding: 5px 8px;
   border-radius: 9999px;
 }
+
 .productFilter .mainMenu .menuItem .allProductsBtn:hover {
   background-color: #e0e0e0;
 }
@@ -318,7 +320,7 @@ header #menuIcon {
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-.productFilter .submenu li.active {
+.productFilter .submenu.active > li {
   color: #007bff !important;
   transform: translateX(5px);
 }
@@ -327,12 +329,17 @@ header #menuIcon {
   transform: translateX(5px);
 }
 
+.submenu li.active {
+  color: #007bff !important;
+}
+
 /* product filter */
 .productsContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .productsBox {
@@ -375,6 +382,7 @@ header #menuIcon {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
+  margin: 10px 0;
 }
 
 .row {
@@ -389,6 +397,7 @@ header #menuIcon {
 
 .price {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .buttons {
@@ -422,71 +431,47 @@ header #menuIcon {
   background-color: #007bff;
   color: white;
 }
+
 .buyButton:hover {
   background-color: #0056b3;
 }
 
-/* Swiper Controls */
-.swiper-controls {
-  position: relative;
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
 }
 
-.swiper-pagination {
-  position: static !important; /* Reset Swiper's default absolute positioning */
-  display: flex;
-  gap: 10px;
-}
-
-.swiper-pagination-bullet {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ddd;
-  color: #333;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.swiper-pagination-bullet-active {
+.pagination button {
+  padding: 10px 15px;
+  font-size: 1em;
   background-color: #007bff;
-  color: white;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  position: static !important; /* Reset Swiper's default absolute positioning */
-  width: 40px;
-  height: 40px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
+.pagination button:hover {
   background-color: #0056b3;
 }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 16px;
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination .page-number {
+  font-size: 1.2em;
+  color: #333;
   font-weight: bold;
 }
+
 /* responsive */
 
 @media (max-width: 767px) {

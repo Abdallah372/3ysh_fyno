@@ -122,83 +122,146 @@ searchInput.addEventListener(
   }, 300)
 );
 
-// Product Filter
-
+// - Products System
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll(".filterBtn");
+  const allProductsBtn = document.querySelector(".allProductsBtn");
+  const submenu = document.querySelector(".submenu");
   const products = document.querySelectorAll(".product");
 
-  const filterProducts = (category) => {
-    products.forEach((product) => {
-      const productCategory = product.getAttribute("data-category");
+  const itemsPerPage = 6;
+  let currentPage = 1;
+  let totalPages = 1;
+  let activeProducts = [...products];
 
-      if (category === "all" || productCategory === category) {
-        gsap.to(product, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power3.out",
-          onStart: () => {
-            product.style.display = "block";
-          },
-        });
-      } else {
-        gsap.to(product, {
-          opacity: 0,
-          scale: 0.8,
-          y: 20,
-          duration: 0.5,
-          ease: "power3.out",
-          onComplete: () => {
-            product.style.display = "none";
-          },
-        });
+  const paginationElements = {
+    prevButton: document.querySelector(".prev"),
+    nextButton: document.querySelector(".next"),
+    pageNumber: document.querySelector(".page-number"),
+  };
+
+  let activeCategory = "all";
+
+  const filterProducts = (category) => {
+    activeCategory = category;
+
+    activeProducts = [...products].filter((product) => {
+      return category === "all" || product.dataset.category === category;
+    });
+
+    products.forEach((product) => {
+      const isVisible = activeProducts.includes(product);
+      const targetOpacity = isVisible ? 1 : 0;
+
+      gsap.to(product, {
+        opacity: targetOpacity,
+        scale: isVisible ? 1 : 0.8,
+        y: isVisible ? 0 : 20,
+        duration: 0.5,
+        ease: "power3.out",
+        onStart: () => {
+          if (isVisible) product.style.display = "block";
+        },
+        onComplete: () => {
+          if (!isVisible) product.style.display = "none";
+        },
+      });
+    });
+
+    currentPage = 1;
+    updatePaginationSystem();
+  };
+
+  const updatePaginationSystem = () => {
+    assignPageToProducts();
+    totalPages = Math.ceil(activeProducts.length / itemsPerPage);
+
+    paginationElements.prevButton.disabled = currentPage === 1;
+    paginationElements.nextButton.disabled = currentPage === totalPages;
+    paginationElements.pageNumber.textContent = currentPage;
+
+    activeProducts.forEach((product, index) => {
+      const page = Math.floor(index / itemsPerPage) + 1;
+      product.style.display = page === currentPage ? "block" : "none";
+    });
+
+    products.forEach((product) => {
+      if (!activeProducts.includes(product)) {
+        product.style.display = "none";
       }
     });
   };
 
+  const assignPageToProducts = () => {
+    activeProducts.forEach((product, index) => {
+      const page = Math.floor(index / itemsPerPage) + 1;
+      product.dataset.page = page;
+    });
+  };
+
+  paginationElements.prevButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePaginationSystem();
+      scrollToFirstProduct();
+    }
+  });
+
+  paginationElements.nextButton.addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updatePaginationSystem();
+      scrollToFirstProduct();
+    }
+  });
+
+  allProductsBtn.addEventListener("click", () => {
+    submenu.classList.toggle("active");
+    filterProducts("all");
+  });
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      filterButtons.forEach((btn) => btn.parentNode.classList.remove("active"));
-
-      button.parentNode.classList.add("active");
-
-      const category = button.getAttribute("data-category");
-      filterProducts(category);
+      filterButtons.forEach((btn) => {
+        btn.parentNode.classList.remove("active");
+        submenu.classList.remove("active");
+      });
+      button.parentNode.classList.toggle("active");
+      filterProducts(button.dataset.category);
     });
   });
 
-  gsap.from(".product", {
-    opacity: 0,
-    scale: 0.8,
-    y: 20,
-    duration: 0.5,
-    ease: "power3.out",
-    stagger: 0.1,
-    onStart: () => {
-      products.forEach((product) => {
-        product.style.display = "block";
-      });
-    },
-  });
+  const scrollToFirstProduct = () => {
+    const firstVisible = activeProducts.find(
+      (p) => p.dataset.page == currentPage
+    );
+    if (firstVisible) {
+      firstVisible.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  filterProducts("all");
 });
 
-// Product Swiper
+// Recomendations Sections
 
-const swiper = new Swiper(".swiper", {
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return `<span class="${className}">${index + 1}</span>`;
-    },
-  },
+const recomendSwiper = new Swiper(".swiper-container", {
+  slidesPerView: 3,
+  spaceBetween: 20,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  slidesPerView: 1,
-  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+    },
+    1024: {
+      slidesPerView: 2,
+    },
+  },
 });
