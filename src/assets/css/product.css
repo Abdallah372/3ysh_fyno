@@ -26,10 +26,7 @@ body {
   width: 50%;
   display: flex;
   justify-content: flex-end;
-  
 }
-
-
 
 .img {
   width: 400px;
@@ -47,7 +44,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
-  
 }
 
 .ainme {
@@ -70,7 +66,6 @@ body {
   animation: ainme 5s ease-in-out infinite;
 }
 
-
 .changes {
   width: 100%;
   display: flex;
@@ -84,13 +79,15 @@ body {
 .change {
   width: 15px;
   height: 15px;
-  background-color: black;
+  background-color: white;
   border-radius: 1.8px;
   transition: 0.5s ease;
+  margin: 2px;
+  opacity: 0.5;
 }
 
 .change1 {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .change2 {
@@ -102,7 +99,7 @@ body {
 }
 
 .change4 {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .title {
@@ -156,6 +153,9 @@ body {
   padding: 10px;
   border-radius: 4px;
   transition: 0.5s ease;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 .size:hover {
@@ -264,7 +264,7 @@ body {
 @keyframes ainme {
   0% {
     transform: rotate(0deg);
-      background-image: linear-gradient(to right, blue, blue, blue);
+    background-image: linear-gradient(to right, blue, blue, blue);
   }
 
   25% {
@@ -281,12 +281,11 @@ body {
 
   100% {
     transform: rotate(360deg);
-      background-image: linear-gradient(to right, blue, blue, blue);
+    background-image: linear-gradient(to right, blue, blue, blue);
   }
 }
 
 @media (max-width: 800px) {
-
   .ainme {
     display: none;
   }
@@ -294,7 +293,7 @@ body {
   .card-ainme {
     display: none;
   }
-  
+
   footer {
     padding: 10px 50px;
     width: 100%;
